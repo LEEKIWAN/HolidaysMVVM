@@ -1,19 +1,22 @@
 //
-//  HolidaysViewController.swift
+//  ChooseCountryViewController.swift
 //  HolidaysMVVM
 //
-//  Created by kiwan on 2021/04/17.
+//  Created by 이기완 on 2021/04/19.
 //
 
+import Foundation
 import UIKit
+import RxCocoa
+import RxSwift
 
-class HolidaysViewController: UIViewController {
+class ChooseCountryViewController: UIViewController {
 
-    let viewModel: HolidaysViewModel = HolidaysViewModel()
-    
-    @IBOutlet weak var chooseCountryButton: UIBarButtonItem!
+    let viewModel = ChooseCountryViewModel()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var closeButton: UIButton!
+    
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -21,41 +24,40 @@ class HolidaysViewController: UIViewController {
         
         bind()
         
-        viewModel.fetchHolidays()
+        viewModel.fetchcountries()
     }
     
-    
+
     
     func bind() {
-        chooseCountryButton.rx.tap
-            .bind(to: viewModel.input.chooseCountryTouched)
+        closeButton.rx.tap
+            .bind(to: viewModel.input.closeTouched)
             .disposed(by: rx.disposeBag)
         
-        
-        viewModel.input.selectedCountry.subscribe(onNext: { [weak self] country in
-            self?.chooseCountryButton.title = country.name
-        })
-        .disposed(by: rx.disposeBag)
-        
-        
-        
-        viewModel.output.fetchedHolidays
+        viewModel.output.fetchedCountries
             .bind(to: tableView.rx.items) { (tableView, row, element) in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "HolidayCell")!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell")!
                 cell.textLabel?.text = element.name
                 return cell
             }
             .disposed(by: rx.disposeBag)
         
         
-        
-        tableView.rx.modelSelected(Holiday.self)
-            .bind(to: viewModel.input.selectedHoliday)
+        viewModel.output.isLoading
+            .map({ !$0 })
+            .bind(to: indicatorView.rx.isHidden)
             .disposed(by: rx.disposeBag)
         
+        
+        tableView.rx.modelSelected(Country.self)
+            .bind(to: viewModel.input.selectedCountry)
+            .disposed(by: rx.disposeBag)
     }
     
-//    5000
+    
+    deinit {
+        print("deinit")
+    }
     /*
      
     // MARK: - Navigation
@@ -68,3 +70,4 @@ class HolidaysViewController: UIViewController {
     */
 
 }
+

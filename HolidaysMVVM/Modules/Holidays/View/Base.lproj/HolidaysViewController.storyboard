@@ -19,7 +19,30 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L4c-0M-x1U">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HolidayCell" textLabel="dN4-9H-MbV" style="IBUITableViewCellStyleDefault" id="80k-4k-fS1">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="80k-4k-fS1" id="iUq-jS-C8N">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dN4-9H-MbV">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="9e7-GU-YdF">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemPinkColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -27,12 +50,19 @@
                             <constraint firstItem="L4c-0M-x1U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="21x-Yn-lzD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L4c-0M-x1U" secondAttribute="bottom" id="2Tz-NM-lp2"/>
                             <constraint firstItem="L4c-0M-x1U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6r5-B5-H2x"/>
+                            <constraint firstItem="9e7-GU-YdF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZZJ-Q3-6fR"/>
+                            <constraint firstItem="9e7-GU-YdF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fN6-jK-9PH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L4c-0M-x1U" secondAttribute="trailing" id="fox-lI-EKw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sns-QD-I4r">
                         <barButtonItem key="rightBarButtonItem" title="Country" id="Ud2-ya-8oC"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chooseCountryButton" destination="Ud2-ya-8oC" id="v2J-4K-vQe"/>
+                        <outlet property="indicatorView" destination="9e7-GU-YdF" id="aMT-qq-ywL"/>
+                        <outlet property="tableView" destination="L4c-0M-x1U" id="RRA-pL-rfX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,6 +93,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

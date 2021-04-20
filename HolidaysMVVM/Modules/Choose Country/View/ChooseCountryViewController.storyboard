@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jQ1-eC-hhm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Choose Country View Controller-->
+        <scene sceneID="c9q-wL-gJM">
+            <objects>
+                <viewController id="jQ1-eC-hhm" customClass="ChooseCountryViewController" customModule="HolidaysMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ACV-p8-t9G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ccU-qi-PIJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="748"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCell" textLabel="ueR-fN-98l" style="IBUITableViewCellStyleDefault" id="e63-un-oGp">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e63-un-oGp" id="PsW-Y3-V8C">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ueR-fN-98l">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="RXl-29-hTr">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemIndigoColor"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8t-WE-wGx">
+                                <rect key="frame" x="0.0" y="792" width="414" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="gHV-fs-Nx3"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zG3-JI-I4b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="k8t-WE-wGx" firstAttribute="leading" secondItem="zG3-JI-I4b" secondAttribute="leading" id="CPi-nX-dFy"/>
+                            <constraint firstItem="ccU-qi-PIJ" firstAttribute="top" secondItem="zG3-JI-I4b" secondAttribute="top" id="IeZ-WX-wKO"/>
+                            <constraint firstItem="zG3-JI-I4b" firstAttribute="bottom" secondItem="k8t-WE-wGx" secondAttribute="bottom" id="Mcq-pF-6Hn"/>
+                            <constraint firstItem="zG3-JI-I4b" firstAttribute="trailing" secondItem="k8t-WE-wGx" secondAttribute="trailing" id="PEk-nX-Sh2"/>
+                            <constraint firstItem="RXl-29-hTr" firstAttribute="centerY" secondItem="ACV-p8-t9G" secondAttribute="centerY" id="WEw-wm-pWc"/>
+                            <constraint firstItem="RXl-29-hTr" firstAttribute="centerX" secondItem="ACV-p8-t9G" secondAttribute="centerX" id="XX8-jL-Z9T"/>
+                            <constraint firstItem="ccU-qi-PIJ" firstAttribute="leading" secondItem="zG3-JI-I4b" secondAttribute="leading" id="dvI-ig-YSh"/>
+                            <constraint firstItem="zG3-JI-I4b" firstAttribute="trailing" secondItem="ccU-qi-PIJ" secondAttribute="trailing" id="hop-cG-JFp"/>
+                            <constraint firstItem="k8t-WE-wGx" firstAttribute="top" secondItem="ccU-qi-PIJ" secondAttribute="bottom" id="tXg-F9-ZJy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="k8t-WE-wGx" id="Vej-vu-PXX"/>
+                        <outlet property="indicatorView" destination="RXl-29-hTr" id="scp-en-yLm"/>
+                        <outlet property="tableView" destination="ccU-qi-PIJ" id="XoM-I0-3TT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q27-cn-7F0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-339.13043478260875" y="195.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
