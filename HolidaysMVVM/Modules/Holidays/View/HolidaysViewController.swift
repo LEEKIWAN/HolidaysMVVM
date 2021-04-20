@@ -32,7 +32,8 @@ class HolidaysViewController: UIViewController {
             .disposed(by: rx.disposeBag)
         
         
-        viewModel.input.selectedCountry.subscribe(onNext: { [weak self] country in
+        viewModel.input.selectedCountry
+            .subscribe(onNext: { [weak self] country in
             self?.chooseCountryButton.title = country.name
         })
         .disposed(by: rx.disposeBag)

@@ -6,4 +6,17 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
+class HolidayDetailViewModel: ViewModelType {
+    var input = Input()
+    var output = Output()
+    
+    struct Input {
+    }
+    
+    struct Output {
+        let selectedHoliday = BehaviorRelay<Holiday?>(value: nil)
+    }
+}

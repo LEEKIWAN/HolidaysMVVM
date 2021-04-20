@@ -10,5 +10,11 @@ import UIKit
 
 
 class HolidayDetailViewController: UIViewController {
+    var holiday: Holiday!
     
+    var viewModel = HolidayDetailViewModel()
+    
+    override func viewDidLoad() {
+        print(holiday)
+    }
 }

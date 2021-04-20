@@ -13,14 +13,21 @@ import ReactiveCoordinator
 class HolidayDetailCoordinator: ReactiveCoordinator<Void> {
     
     let rootViewController: UIViewController
-    var selectedHoliday: Holiday?
-    
+    var passedHoliday: Holiday!
     
     init(rootViewController: UIViewController) {
         self.rootViewController = rootViewController
     }
     
     override func start() -> Observable<Void> {
+        let storyboard = UIStoryboard(name: "HolidayDetailViewController", bundle: nil)
+        guard let holidayDetailVC = storyboard.instantiateInitialViewController() as? HolidayDetailViewController else { fatalError() }
+        
+        if let holiday = passedHoliday {
+            holidayDetailVC.holiday = holiday
+        }
+        
+        rootViewController.present(holidayDetailVC, animated: true, completion: nil)
         
         return Observable.empty()
     }

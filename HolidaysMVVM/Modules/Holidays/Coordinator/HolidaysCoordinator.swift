@@ -60,9 +60,10 @@ class HolidaysCoordinator: ReactiveCoordinator<Void> {
             }
     }
     
-    private func coordinateToHolidayDetail(with: Holiday) -> Observable<Void> {
+    private func coordinateToHolidayDetail(with holiday: Holiday) -> Observable<Void> {
         let chooseCountryCoordinator = HolidayDetailCoordinator(rootViewController: rootViewController)
- 
+        chooseCountryCoordinator.passedHoliday = holiday
+        
         
         
         return coordinate(to: chooseCountryCoordinator)
