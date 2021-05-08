@@ -1,0 +1,6 @@
+framework module Pods_HolidaysMVVM {
+  umbrella header "Pods-HolidaysMVVM-umbrella.h"
+
+  export *
+  module * { export * }
+}
